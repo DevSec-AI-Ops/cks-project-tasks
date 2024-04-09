@@ -1,0 +1,9 @@
+# check the path for audit-policy,logs
+# check the logs if present the container at crictl ps -a
+# Check the policy format
+# if api-server is not showing in crictl ps -a
+1. Check the logs of pod, container
+2. wait for sometime
+3. move the api-server yaml back and forth
+4. if still not coming up.? then restart the kubelet , if still not coming up then restart containerd.
+
