@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pod-deploy
+  name: pod-deploy
+#  annotations:
+ #   container.apparmor.security.beta.kubernetes.io/busybox-container: localhost/k8s-apparmor-example-deny-write
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-deploy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: pod-deploy
+      annotations:
+        container.apparmor.security.beta.kubernetes.io/busybox-container: localhost/k8s-apparmor-example-deny-write
+    spec:
+      containers:
+      - command:
+        - sleep
+        - "36000"
+        image: busybox
+        name: busybox-container
